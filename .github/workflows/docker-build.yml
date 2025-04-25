@@ -51,6 +51,8 @@ jobs:
           push: true
           tags: |
             ${{ env.GITHUB_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.event.inputs.image_tag || github.ref_name }}
+            ${{ env.GITHUB_REGISTRY }}/${{ env.IMAGE_NAME }}:latest
             ${{ env.DOCKERHUB_IMAGE_NAME }}:${{ github.event.inputs.image_tag || github.ref_name }}
+            ${{ env.DOCKERHUB_IMAGE_NAME }}:latest
           build-args: |
             IMAGE_TAG=${{ github.event.inputs.image_tag || github.ref_name }}
